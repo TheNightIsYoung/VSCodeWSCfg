@@ -1,0 +1,62 @@
+{
+    "tasks": [
+
+        /* ------ Configure G++ Compiler For C/C++ ------ */
+        {
+            "type": "shell",                      // { shell | process }
+            "label": "g++ build active file",     // 任务名称：被启动器 Launch 调用，与 launch.json 的 preLaunchTask 设置项相对应；
+            "command": "/usr/bin/g++",            // 设置调试时使用的编译器： 这里设置为 GCC，用于编译 C 语言；
+
+            /**编译命令参数设置：*/
+            "args": [      
+                "-g",                             // 生成和调试有关的信息;
+                "${file}",
+                "-o",                             // 设置编译后输出的文件名：默认输出 a.o;
+                "${fileDirname}/${fileBasenameNoExtension}.out",
+
+                "-I", "/usr/local/include/",
+                "-I", "/usr/local/include/opencv",
+                "-I", "/usr/local/include/opencv2",
+                "-L", "/usr/local/lib/lib*",
+                "-I", "opencv_core",
+                "-I", "opencv_imgproc",
+                "-I", "opencv_imgcodecs",
+                "-I", "opencv_video",
+                "-I", "opencv_ml",
+                "-I", "opencv_highgui",
+                "-I", "opencv_objdetect",
+                "-I", "opencv_flann",
+                "-I", "opencv_photo",
+                "-I", "opencv_videoio"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "group": {                            // 用于定义此任务属于的执行组
+                "kind": "build",                  // { build | test }
+                "isDefault": true                 // { true | false }
+            }
+        },
+
+        /* ------ Configure GCC Compiler For C ------ */
+        {
+            "type": "shell",
+            "label": "gcc build active file",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.out"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "version": "2.0.0"
+}

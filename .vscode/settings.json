@@ -1,0 +1,62 @@
+{
+    "files.defaultLanguage": "cpp",              // ctrl+N 新建文件后默认的语言；
+    "editor.formatOnType": true,                 // 输入时就进行格式化，默认触发字符较少，分号可以触发；
+
+    "code-runner.runInTerminal": true,           // 设置成 false 会在“output”中进行输出，无法输入；
+    "code-runner.executorMap": {
+        "javascript": "node",
+        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt `pkg-config opencv --libs --cflags opencv` && $dir$fileNameWithoutExt",
+        "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "php": "php",
+        "python": "python -u",
+        "perl": "perl",
+        "perl6": "perl6",
+        "ruby": "ruby",
+        "go": "go run",
+        "lua": "lua",
+        "groovy": "groovy",
+        "powershell": "powershell -ExecutionPolicy ByPass -File",
+        "bat": "cmd /c",
+        "shellscript": "bash",
+        "fsharp": "fsi",
+        "csharp": "scriptcs",
+        "vbscript": "cscript //Nologo",
+        "typescript": "ts-node",
+        "coffeescript": "coffee",
+        "scala": "scala",
+        "swift": "swift",
+        "julia": "julia",
+        "crystal": "crystal",
+        "ocaml": "ocaml",
+        "r": "Rscript",
+        "applescript": "osascript",
+        "clojure": "lein exec",
+        "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+        "racket": "racket",
+        "scheme": "csi -script",
+        "ahk": "autohotkey",
+        "autoit": "autoit3",
+        "dart": "dart",
+        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+        "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+        "haskell": "runhaskell",
+        "nim": "nim compile --verbosity:0 --hints:off --run",
+        "lisp": "sbcl --script",
+        "kit": "kitc --run"
+    },
+    "code-runner.saveFileBeforeRun": true,       // Run Code 前保存；
+    "code-runner.preserveFocus": true,           // 若为 false，Run code 后光标会聚焦到终端上。如果需要频繁输入数据可设为 false；
+    "code-runner.clearPreviousOutput": true,     // 每次 Run code 前清空终端中属于之前 Code runner 的日志消息；
+    
+    "C_Cpp.clang_format_sortIncludes": true,     // 格式化时调整 include 的顺序（按字母排序）;
+    "C_Cpp.intelliSenseEngine": "Default",       // 可以为 Default 或 Tag Parser，后者较老，功能较简单。具体差别参考 cpptools 扩展文档；
+    "C_Cpp.errorSquiggles": "Disabled",          
+    "C_Cpp.autocomplete": "Default",
+
+    "files.associations": {
+        "iostream": "cpp"
+    }
+}

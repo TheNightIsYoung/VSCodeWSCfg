@@ -1,0 +1,70 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        /* ------ G++ Launch For C/C++ ------ */
+        {
+            "name": "(G++) Launch",                                      // 配置名称：将会在启动配置的下拉菜单中显示;
+            "type": "cppdbg",                                            // 配置类型: 使用 GDB 或 LLDB 时只能是 cppdbg；
+            "request": "launch",                                         // 请求配置类型: 可以设置为 launch（启动）或 attach（附加）；
+            "program": "${fileDirname}/${fileBasenameNoExtension}.out",  // 设置将要进行调试的程序的路径；
+            "args": [],                                                  // 程序调试时传递给程序的命令行参数，一般设为空即可；
+            "stopAtEntry": true,                                         // 设为 true 时，程序将暂停在程序入口处，一般设置为 false；
+            "cwd": "${workspaceFolder}",                                 // 调试程序时的工作目录：一般设置为 ${workspaceRoot}，即代码所在目录（工作区）；
+            "environment": [],                                           // 设置调试时添加到程序环境中的环境变量，例如: [ { "name": "squid", "value": "clam" } ]；
+            "externalConsole": false,                                    // 调试时是否显示控制台窗口：一般设置为 true，显示控制台；
+            
+            "windows": {       // For Windows
+                "MIMode": "gdb",                                         // 指定连接的调试器：可以为 gdb 或 lldb（但目前 lldb 在 Windows下没有预编译好的版本）；
+                "miDebuggerPath": "D:\\...",                             // 调试器（miDebugger）路径，注意 Windows 下这里要与 MinGw 的路径对应；
+            },
+            "linux": {         // For Linux
+                "MIMode": "gdb",                                         // 指定连接的调试器：可以为 gdb 或 lldb（但目前 lldb 在 Windows下没有预编译好的版本）；
+                "miDebuggerPath": "/usr/bin/gdb",                        // 调试器（miDebugger）路径，注意 Windows 下这里要与 MinGw 的路径对应；
+            },
+
+            "setupCommands": [ // 执行下面的命令数组以设置 GDB 或 LLDB
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "logging": {       // 用于设置：将哪些类型的消息记录到调试控制台。
+                "exceptions": true,                                      // 是否应将异常消息记录到调试控制台,默认为 true；
+                "moduleLoad": false,                                     // 是否应将模块加载事件记录到调试控制台，默认为 true；
+                "programOutput": true,                                   // 是否应将程序输出记录到调试控制台的可选标志，默认为 true；
+                "engineLogging": false,                                  // 是否应将诊断引擎日志记录到调试控制台，默认为 false；
+                "trace": false,                                          // 是否将诊断适配器命令跟踪记录到调试控制台，默认为 false；
+                "traceResponse": false                                   // 是否将诊断适配器命令和响应跟踪记录到调试控制台，默认为 false。
+            },
+            "preLaunchTask": "g++ build active file"                     // 设置调试会话开始前将执行的任务：一般为编译程序（例如 C++：g++.exe, C：gcc.exe），与 tasks.json 的 label 相对应;
+        },
+        
+        /* ------ GCC Launch For C ------ */
+        {
+            "name": "(GCC) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.out",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "gcc build active file",
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ]
+}

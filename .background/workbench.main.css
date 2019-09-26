@@ -1,0 +1,7 @@
+/*
+"window.titleBarStyle": "custom"
+*/
+
+/*background start*/
+body{pointer-events:auto !important;background-size:100% !important;opacity: 0.93 !important;background-position: 0 0 !important;background-image: url('file://E:/OneDrive/Pictures/overwatch/bg-53.jpg') !important;content:'';position:absolute;z-index:99999;width:100%;background-repeat:no-repeat;}
+/*background end*/
